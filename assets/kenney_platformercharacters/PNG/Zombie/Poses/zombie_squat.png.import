@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvrk5ia7qa012"
-path="res://.godot/imported/zombie_walk1.png-6786779a96d22988b1695c37d2cfab52.ctex"
+uid="uid://s8f8rry8uilw"
+path="res://.godot/imported/zombie_squat.png-ab99af37725a24bec580e51c9d692c86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_walk1.png"
-dest_files=["res://.godot/imported/zombie_walk1.png-6786779a96d22988b1695c37d2cfab52.ctex"]
+source_file="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_squat.png"
+dest_files=["res://.godot/imported/zombie_squat.png-ab99af37725a24bec580e51c9d692c86.ctex"]
 
 [params]
 
