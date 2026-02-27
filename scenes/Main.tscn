@@ -2,13 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://ds60n6krsavle" path="res://scenes/Ground.tscn" id="1_elqb8"]
 [ext_resource type="PackedScene" uid="uid://dvlyhuf4uyjqv" path="res://scenes/Player.tscn" id="3_0bbpv"]
+[ext_resource type="PackedScene" uid="uid://bqvlgs5buenbi" path="res://scenes/Flag.tscn" id="4_rarhs"]
+[ext_resource type="Texture2D" uid="uid://u7lqbgwxi8dv" path="res://assets/black.jpg" id="5_c01mt"]
+[ext_resource type="FontFile" uid="uid://das6wmib1qkas" path="res://assets/my game.ttf" id="5_vcsgt"]
 [ext_resource type="Texture2D" uid="uid://yt4vr2duknsm" path="res://assets/background.jpg" id="8_jlsqs"]
 
 [node name="Root" type="Node2D" unique_id=918599496]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=81330800]
-position = Vector2(576.50006, 319.50003)
-scale = Vector2(0.6182291, 0.5425)
+position = Vector2(577.75006, 321.00003)
+scale = Vector2(0.61276037, 0.5425)
 texture = ExtResource("8_jlsqs")
 
 [node name="Ground" parent="." unique_id=673580990 instance=ExtResource("1_elqb8")]
@@ -20,5 +23,33 @@ position = Vector2(856, 324)
 [node name="Ground3" parent="." unique_id=1648397147 instance=ExtResource("1_elqb8")]
 position = Vector2(576, 394)
 
-[node name="CharacterBody2D" parent="." unique_id=2025433163 instance=ExtResource("3_0bbpv")]
-position = Vector2(-83, 24)
+[node name="Ground4" parent="." unique_id=451668944 instance=ExtResource("1_elqb8")]
+position = Vector2(975, 165)
+
+[node name="Ground5" parent="." unique_id=391221001 instance=ExtResource("1_elqb8")]
+position = Vector2(113, 576)
+
+[node name="Player" parent="." unique_id=2025433163 instance=ExtResource("3_0bbpv")]
+position = Vector2(-130, 274)
+
+[node name="Flag" parent="." unique_id=1164256836 instance=ExtResource("4_rarhs")]
+
+[node name="WinBG" type="Sprite2D" parent="." unique_id=1631900007]
+visible = false
+modulate = Color(1, 1, 1, 0.7294118)
+position = Vector2(579.9923, 324.67358)
+scale = Vector2(2.900038, 3.043678)
+texture = ExtResource("5_c01mt")
+
+[node name="WinText" type="Label" parent="." unique_id=1125218441]
+visible = false
+offset_left = 257.0
+offset_top = 280.0
+offset_right = 887.0
+offset_bottom = 359.0
+theme_override_colors/font_color = Color(0.99151236, 0.36204728, 1.92523e-07, 1)
+theme_override_colors/font_shadow_color = Color(0.27589396, 0, 0.02126692, 1)
+theme_override_colors/font_outline_color = Color(0.4627451, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vcsgt")
+theme_override_font_sizes/font_size = 70
+text = "TARGET REACHED"

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bpjyftukp8uq8"]
+
+[ext_resource type="Texture2D" uid="uid://by0adcgrthqbg" path="res://assets/fire.png" id="2_xmxlm"]
+
+[sub_resource type="GDScript" id="GDScript_mkqrb"]
+script/source = "extends Area2D
+
+func _ready():
+	body_entered.connect(_on_body_entered)
+
+func _on_body_entered(body):
+	await get_tree().create_timer(1.5).timeout
+	get_tree().call_deferred(\"reload_current_scene\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhr70"]
+size = Vector2(164, 57)
+
+[node name="Area2D" type="Area2D" unique_id=1273423067]
+script = SubResource("GDScript_mkqrb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1288639369]
+position = Vector2(556.0625, 329)
+scale = Vector2(0.16198727, 0.08685179)
+texture = ExtResource("2_xmxlm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1793840576]
+position = Vector2(555, 329.5)
+shape = SubResource("RectangleShape2D_lhr70")
