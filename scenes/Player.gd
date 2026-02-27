@@ -50,9 +50,14 @@ func update_animation():
 		if velocity.x == 0:
 			anim.play("idle")
 		else:
-			anim.play("idle")
+			anim.play("walk")
 	else:
 		if velocity.y < 0:
 			anim.play("jump")
 		else: 
 			anim.play("fall")
+
+func win():
+	velocity = Vector2.ZERO
+	set_physics_process(false)
+	anim.play("win")
