@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://das6wmib1qkas" path="res://assets/my game.ttf" id="5_vcsgt"]
 [ext_resource type="AudioStream" uid="uid://duudy4tu68oex" path="res://assets/sound/bgm.wav" id="7_nxtc6"]
 [ext_resource type="Texture2D" uid="uid://yt4vr2duknsm" path="res://assets/background.jpg" id="8_jlsqs"]
+[ext_resource type="PackedScene" uid="uid://b8ql2m1awn4vu" path="res://scenes/Enemy.tscn" id="8_q8u5g"]
 
 [node name="Root" type="Node2D" unique_id=918599496]
 
@@ -16,24 +17,57 @@ scale = Vector2(0.61276037, 0.5425)
 texture = ExtResource("8_jlsqs")
 
 [node name="Ground" parent="." unique_id=673580990 instance=ExtResource("1_elqb8")]
-position = Vector2(296, 324)
+position = Vector2(302, 355)
 
-[node name="Ground4" parent="Ground" unique_id=451668944 instance=ExtResource("1_elqb8")]
-position = Vector2(679, -159)
+[node name="Ground5" parent="Ground" unique_id=391221001 instance=ExtResource("1_elqb8")]
+position = Vector2(-171, 238)
 
 [node name="Ground3" parent="Ground" unique_id=1648397147 instance=ExtResource("1_elqb8")]
 position = Vector2(280, 70)
 
-[node name="Ground5" parent="Ground" unique_id=391221001 instance=ExtResource("1_elqb8")]
-position = Vector2(-110, 250)
-
 [node name="Ground2" parent="Ground" unique_id=1551337937 instance=ExtResource("1_elqb8")]
 position = Vector2(560, 0)
 
+[node name="Ground4" parent="Ground" unique_id=451668944 instance=ExtResource("1_elqb8")]
+position = Vector2(673, -193)
+
 [node name="Player" parent="." unique_id=2025433163 instance=ExtResource("3_0bbpv")]
-position = Vector2(-130, 274)
+position = Vector2(-128, 281)
 
 [node name="Flag" parent="." unique_id=1164256836 instance=ExtResource("4_rarhs")]
+
+[node name="SoundLatihan" type="AudioStreamPlayer2D" parent="." unique_id=162929762]
+stream = ExtResource("7_nxtc6")
+volume_db = 2.0
+
+[node name="CharacterBody2D" parent="." unique_id=154662937 instance=ExtResource("8_q8u5g")]
+position = Vector2(871, 264)
+scale = Vector2(0.16, 0.16)
+
+[node name="Instruction" type="Sprite2D" parent="." unique_id=26308478]
+position = Vector2(579.9923, 324.67358)
+scale = Vector2(2.900038, 3.043678)
+
+[node name="TextEdit" type="TextEdit" parent="Instruction" unique_id=2083376252]
+anchors_preset = -1
+anchor_left = -160.447
+anchor_top = -85.734
+anchor_right = -160.447
+anchor_bottom = -85.734
+offset_left = -34.030502
+offset_top = -16.666306
+offset_right = 107.00209
+offset_bottom = 45.42961
+theme_override_constants/caret_width = 4
+theme_override_constants/outline_size = 3
+theme_override_constants/line_spacing = -3
+theme_override_font_sizes/font_size = 8
+text = "INSTRUCTION
+⭐Touch enemy : Restart level
+⭐Reach the flag : Win
+⭐← | → : Move left / right 
+⭐↑ : Jump (up to 2x)
+⭐Space : Attack enemy"
 
 [node name="WinBG" type="Sprite2D" parent="." unique_id=1631900007]
 visible = false
@@ -55,7 +89,5 @@ theme_override_fonts/font = ExtResource("5_vcsgt")
 theme_override_font_sizes/font_size = 70
 text = "TARGET REACHED"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=162929762]
-stream = ExtResource("7_nxtc6")
-volume_db = 2.0
-autoplay = true
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1339225517]
+position = Vector2(868, 259)

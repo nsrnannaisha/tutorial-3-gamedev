@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://ccnt6deyykprd" path="res://scenes/Player.gd" id="1_qu4a1"]
 [ext_resource type="Texture2D" uid="uid://j2wrs40clo4m" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_idle.png" id="2_70d11"]
+[ext_resource type="Texture2D" uid="uid://dv1reihmdtpyu" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_action1.png" id="3_6eyey"]
 [ext_resource type="Texture2D" uid="uid://dvvkmshl5im4i" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_fall.png" id="3_cw2d6"]
+[ext_resource type="Texture2D" uid="uid://vbe0mk82vmx3" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_action2.png" id="4_d3wef"]
 [ext_resource type="Texture2D" uid="uid://ci1msmjvc5x1n" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_hurt.png" id="4_khinc"]
 [ext_resource type="Texture2D" uid="uid://d2w5s67qoymf2" path="res://assets/kenney_platformercharacters/PNG/Zombie/zombie_tilesheet.png" id="5_6eyey"]
 [ext_resource type="Texture2D" uid="uid://c6ab5usovtwvg" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_jump.png" id="5_bruh7"]
 [ext_resource type="Texture2D" uid="uid://cbbxyh5h1jc2k" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_cheer1.png" id="7_bruh7"]
 [ext_resource type="Texture2D" uid="uid://bp846fbautxqg" path="res://assets/kenney_platformercharacters/PNG/Zombie/Poses/zombie_cheer2.png" id="7_cw2d6"]
+[ext_resource type="AudioStream" uid="uid://b63qlklbjdhyv" path="res://assets/sound/lose.wav" id="11_o4126"]
+[ext_resource type="AudioStream" uid="uid://bnvmlohnt7yxu" path="res://assets/sound/space.wav" id="11_p7iby"]
+[ext_resource type="AudioStream" uid="uid://k7bke2b45p6" path="res://assets/sound/bash.ogg" id="12_lkdrv"]
+[ext_resource type="AudioStream" uid="uid://vrwvrpyey1uh" path="res://assets/sound/win.wav" id="13_lkdrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bbpv"]
 size = Vector2(94, 98)
@@ -22,6 +28,17 @@ region = Rect2(80, 110, 80, 110)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nxtc6"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6eyey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d3wef")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_cw2d6")
@@ -91,5 +108,21 @@ texture = ExtResource("2_70d11")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1872426326]
 position = Vector2(373, 203)
 sprite_frames = SubResource("SpriteFrames_nxtc6")
-animation = &"fall"
+animation = &"hurt"
 autoplay = "idle"
+
+[node name="SpaceAudio" type="AudioStreamPlayer" parent="." unique_id=1033402018]
+stream = ExtResource("11_p7iby")
+autoplay = true
+
+[node name="SFXLose" type="AudioStreamPlayer" parent="." unique_id=1352747721]
+stream = ExtResource("11_o4126")
+
+[node name="SFXAttack" type="AudioStreamPlayer" parent="." unique_id=708713412]
+stream = ExtResource("12_lkdrv")
+
+[node name="SFXWin" type="AudioStreamPlayer" parent="." unique_id=982811543]
+stream = ExtResource("13_lkdrv")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=883636859]
+position = Vector2(582, 176)
